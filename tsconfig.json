@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES2017",
+        "preserveConstEnums": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "declaration": true
+    },
+    "files": [
+        "./src/index.ts"
+    ],
+    "compileOnSave": true
+}
