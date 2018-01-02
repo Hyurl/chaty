@@ -5,8 +5,7 @@
         "preserveConstEnums": true,
         "rootDir": "./src",
         "outDir": "./dist",
-        "experimentalDecorators": true,
-        "declaration": true
+        "experimentalDecorators": true
     },
     "files": [
         "./src/index.ts"
