@@ -1,4 +1,4 @@
-const { App } = require("../dist/index");
+const { App } = require("../");
 
 const Responses = {
     "Hello": "Hello, master!",

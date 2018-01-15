@@ -1,4 +1,4 @@
-import * as util from "util";
+const output = Symbol("output");
 
 export default class Context {
     /** Set/get the preference name of your robot. */
@@ -6,26 +6,28 @@ export default class Context {
 
     type: string = "console";
 
-    adapter: object = console;
+    adapter: any = console;
 
     input: string = "";
 
-    protected _output: string = "";
-
     matches: string | RegExpMatchArray = null;
+
+    constructor();
+
+    constructor(input: string, matches: string | RegExpExecArray);
 
     constructor(input?: string, matches?: string | RegExpExecArray) {
         this.input = input;
         this.matches = matches;
     }
 
-    set output(v) {
-        this._output = v;
+    set output(v: string) {
+        this[output] = v;
         this.onoutput();
     }
 
-    get output() {
-        return this._output;
+    get output(): string {
+        return this[output];
     }
 
     /** A function called when setting `context.output`. */
@@ -33,21 +35,5 @@ export default class Context {
         if (this.type === "console") {
             console.log(`${this.name}:`, this.output);
         }
-    }
-
-    [util.inspect.custom]() {
-        var _this = this,
-            obj = {
-                name: _this.name,
-                type: _this.type,
-                adapter: _this.adapter,
-                input: _this.input,
-                output: _this.output,
-                matches: _this.matches
-            };
-        Object.defineProperty(obj, "constructor", {
-            value: _this.constructor
-        });
-        return obj;
     }
 }

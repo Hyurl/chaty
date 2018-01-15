@@ -1,7 +1,7 @@
 const http = require("http");
 const url = require("url");
 const querystring = require("querystring");
-const { App, Context } = require("../dist/");
+const { App, Context } = require("../");
 
 // Rewrite output event globallly.
 Context.prototype.onoutput = function () {

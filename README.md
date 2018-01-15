@@ -165,6 +165,7 @@ http.createServer((req, res) => {
 
         // If you don't want to rewrite ctx.onoutput globally, you can set it 
         // here.
+        
         app.exec(query.statement, ctx);
     }
 }).listen(80);
